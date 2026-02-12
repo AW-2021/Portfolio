@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, easeOut } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Footer from "../sections/Footer";
 import CustomCursor from "../components/CustomCursor";
 import LoadingScreen from "../components/LoadingScreen";
-import { Link } from "react-router-dom";
 import { CgArrowTopRight } from "react-icons/cg";
 import GridLines from "../components/GridLines";
 import { HoverRouterLink } from "../components/HoverRouterLink";
@@ -28,10 +27,21 @@ const childVariants = {
 const NotFoundPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       {isLoading ? (
-        <LoadingScreen isLoading={isLoading} onComplete={() => setIsLoading(false)} />
+        <LoadingScreen
+          isLoading={isLoading}
+          onComplete={() => setIsLoading(false)}
+        />
       ) : (
         <>
           <CustomCursor />
