@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-light: #fdf9ea;
+  /* --color-light: #fdf9f0; */
+  --color-dark: rgb(21, 21, 21);
+  --color-text-light: #0e0ce4;
+  --color-text-light-2: #0b0899;
+  --color-text-dark:#50d6fe;
+
+  --color-accent-light: rgb(229, 225, 220); /* Used for ContactForm */
+  --color-accent-dark: rgb(52, 52, 52);      /* Used for ContactForm */
+  --color-accent-light-2: #e0dada;          /* Used for Project(s) */
+  --color-accent-dark-2: #393939;           /* Used for Project(s) */
+
+  --font-heading: "Space Grotesk", "sans-serif";
+  --font-body: "Satoshi", "sans-serif";
+}
+
+html {
+  background: var(--color-light);
+  color: var(--color-text-light);
+  font-family: Satoshi, sans-serif;
+  scroll-behavior: smooth;
+  transition: background 0.3s ease, color 0.3s ease;
+  @apply min-h-screen;
+}
+
+body {
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+}
+
+html.dark {
+  background: var(--color-dark);
+  color: var(--color-text-dark);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+[data-cursor="explore"] {
+  cursor: pointer;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+  -webkit-text-fill-color: var(
+    --color-text-light
+  ) !important;
+}
+
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover,
+.dark input:-webkit-autofill:focus,
+.dark input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px #1d1d1d inset !important;
+  -webkit-text-fill-color: var(
+    --color-text-dark
+  ) !important;
+}
+
+.checkbox-field {
+  display: block;
+  position: relative;
+  padding-left: 38px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-field input {
+  appearance: none;
+}
+
+/* Create a custom checkbox */
+.checkmark, .dark .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  border-radius: 2px;
+  background-color: var(--color-light);
+}
+
+.dark .checkmark {
+  background-color: var(--color-dark);
+}
+
+.checkbox-field:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.dark .checkbox-field:hover input ~ .checkmark {
+  background-color: #6d6d6d;
+}
+
+.checkbox-field input:checked ~ .checkmark {
+  background-color: var(--color-dark);
+}
+
+.dark .checkbox-field input:checked ~ .checkmark {
+  background-color: var(--color-light);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-field input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-field .checkmark:after {
+  left: 7.5px;
+  top: 2.5px;
+  width: 7px;
+  height: 13px;
+  border: solid var(--color-light);
+  border-width: 0 2.5px 2.5px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.dark .checkbox-field .checkmark:after {
+  left: 7.5px;
+  top: 2.5px;
+  width: 7px;
+  height: 13px;
+  border: solid var(--color-dark);
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-light-2);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--color-text-dark);
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #20a3c9;
+}
