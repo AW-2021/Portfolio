@@ -12,13 +12,13 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+/* const itemVariants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
     transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as const },
   },
-};
+}; */
 
 const Projects = () => {
   const ref = useRef(null);

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { BsMoonStars, BsMoonStarsFill } from "react-icons/bs";
+import { BsMoonStars } from "react-icons/bs";
 import useScreenSize from "../hooks/useScreenSize";
 
 export const ThemeToggle = () => {

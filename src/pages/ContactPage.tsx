@@ -1,4 +1,4 @@
-import { motion, useScroll, easeOut, type Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { useState, useEffect } from "react";
 import LoadingScreen from "../components/LoadingScreen";
 import CustomCursor from "../components/CustomCursor";
